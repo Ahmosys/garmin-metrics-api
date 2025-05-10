@@ -43,11 +43,27 @@ GARMIN_PASS=yourpassword
 
 ### 4. Run the server
 
+#### Local Development
 ```bash
 fastapi dev api.py
 ```
 
-API will be available at: `http://localhost:8000`
+#### Docker Deployment
+```bash
+# Build the image
+docker build -t garmin-metrics-api .
+
+# Run with .env file (Recommended)
+docker run -p 80:80 --env-file .env garmin-metrics-api
+
+# Or run with direct environment variables
+docker run -p 80:80 \
+  -e GARMIN_EMAIL=your@email.com \
+  -e GARMIN_PASS=yourpassword \
+  garmin-metrics-api
+```
+
+API will be available at: `http://localhost:8000` (local) or `http://localhost:80` (Docker)
 
 ---
 
@@ -80,9 +96,19 @@ Use Automations in iOS Shortcuts to schedule:
 ## 📂 Project Structure
 
 ```
-main.py           # FastAPI server
-.env              # Garmin credentials (not tracked)
-requirements.txt  # Python dependencies
+├── app/                    # Application package
+│   ├── api/               # API routes and endpoints
+│   ├── core/              # Core functionality and config
+│   ├── models/            # Data models
+│   ├── services/          # Business logic services
+│   ├── utils/             # Utility functions
+│   └── main.py            # FastAPI application entry
+├── data/                  # Data storage directory
+├── .env                   # Environment variables (not tracked)
+├── .gitignore            # Git ignore rules
+├── Dockerfile            # Docker configuration
+├── main.py               # Main application file
+└── requirements.txt      # Python dependencies
 ```
 
 ---
