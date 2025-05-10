@@ -58,7 +58,7 @@ API will be available at: `http://localhost:8000`
 | `/vo2max`             | VO2Max from **yesterday post-activity**               | 🕙 **10:00 AM** daily  |
 | `/hrv`                | HRV (VFC) from **yesterday night**            | 🕙 **10:00 AM** daily  |
 | `/spo2`               | SpO2 (oxygen level) from **yesterday night**  | 🕙 **10:00 AM** daily  |
-| `/respiratory_rate`   | Today's respiratory rate<br>Filtered:<br>• 00:00–12:00 → Call at 12PM<br>• 12:00–23:59 → Call at 10PM | 🕛 **12:00 PM** and 🕙 **10:00 PM** |
+| `/respiratory_rate`   | Today's respiratory rate<br>Filtered:<br>• 00:00–12:00 → Call at 12PM<br>• 12:00–23:59 → Call at 10PM | 🕛 **12:00 AM** and 🕙 **12:00 PM** |
 
 ---
 
